@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "(RESTful) APIs for the highly impatient: Just write a public-facing API spec in JSON, and let this do the Express routing for you. Not as cool as Swagger but a LOT simpler.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/willy-b/restless-api.git"

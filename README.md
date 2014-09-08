@@ -10,8 +10,8 @@ the goal has been as-simple-as-possible at all decision points, but there is sup
 
 ## Quick start
 -  In your app file, call restless-api with JSON having two keys
-	* 'nouns': contains reference to a module (or optionally a controller and model) for each noun
-	* 'links': user-facing API spec (NO CODE, literally ready to send your user)
+	* `nouns`: contains reference to a module (or optionally a controller and model) for each noun
+	* `links`: user-facing API spec (NO CODE, literally ready to send your user)
 
 - Example:
 ```
@@ -90,7 +90,7 @@ module.exports =  {
 //...	       	       	       
 };
 ```
-- Where the 3rd "user" argument is the user "model" (this example used one unified model+controller for user noun, but if they were separate this would be the controller and it would get the model ref there)
+- Where the 3rd `user` argument is the user `model` (this example used one unified model+controller for user noun, but if they were separate this would be the controller and it would get the model ref there)
 
 - more docs and example files coming soon...
 
