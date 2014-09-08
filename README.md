@@ -68,6 +68,7 @@ var apiRouter = restlessApi({
 ```
 
 - In your app file you use the router returned as normal:
+
 ```
 // The routes above are relative; restless-api returns an express.Router object
 // which you can mount wherever you want
@@ -79,6 +80,7 @@ console.log("Listening on port 3000!");
 ```
 
 - And then create modules for each noun, e.g. `./lib/users.js` might be:
+
 ```
 module.exports =  {
 	       index: function index(req, res, User) {
@@ -89,7 +91,9 @@ module.exports =  {
 	       },
 //...	       	       	       
 };
+
 ```
+
 - Where the 3rd `user` argument is the user `model` (this example used one unified model+controller for user noun, but if they were separate this would be the controller and it would get the model ref there)
 
 - more docs and example files coming soon...
