@@ -1,9 +1,11 @@
 # restless api: RESTful APIs for the highly impatient
 **Under development, check back soon for more documentation**
 
-restless-api takes a JSON spec of your APIs like you would send your user (no code inside it) and handles all the Express routing
+- restless-api takes a JSON spec of your APIs like you would send your user (no code inside it) and handles all the Express routing
 
-the goal has been as-simple-as-possible at all decision points, but there is support for model/controller breakdown and dependency injection if you want it
+- the goal has been to be as-simple-as-possible at all decision points, but there is support for model/controller breakdown and dependency injection if you want it
+
+- Available on NPM @ https://www.npmjs.org/package/restless-api
 
 ## Example: see Node Annotator Store backend
 - The [NodeJS implementation of the Annotator backend](http://github.com/willy-b/node-annotator-store) is using restless-api
