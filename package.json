@@ -1,0 +1,33 @@
+{
+  "name": "restless-api",
+  "version": "0.0.0",
+  "description": "(RESTful) APIs for the highly impatient: Just write a public-facing API spec in JSON, and let this do the Express routing for you. Not as cool as Swagger but a LOT simpler.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willy-b/restless-api.git"
+  },
+  "keywords": [
+    "express",
+    "routing",
+    "REST",
+    "RESTful",
+    "API",
+    "fast",
+    "spec",
+    "controller"
+  ],
+  "author": "Willy Bruns <willy@entropi.info>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/willy-b/restless-api/issues"
+  },
+  "homepage": "https://github.com/willy-b/restless-api",
+  "dependencies": {
+    "express": "^4.8.8",
+    "underscore": "^1.7.0"
+  }
+}
