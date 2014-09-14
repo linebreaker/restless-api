@@ -12,8 +12,8 @@
 
 ## Quick start
 -  In your app file, call restless-api with JSON having two keys
-	* `nouns`: contains reference to a module (or optionally a controller and model) for each noun
 	* `links`: user-facing API spec (NO CODE, literally ready to send your user)
+	* `nouns`: contains a reference to a module (or optionally a controller and model) for each noun
 
 - Example:
 ```
