@@ -11,6 +11,7 @@
 - A [NodeJS implementation of the Annotator backend](http://github.com/willy-b/node-annotator-store) is using restless-api
 
 ## Quick start
+-  Add `restless-api` to your project: `npm install --save restless-api`
 -  In your app file, call restless-api with JSON having two keys
 	* `links`: user-facing API spec (NO CODE, literally ready to send your user)
 	* `nouns`: contains a reference to a module (or optionally a controller and model) for each noun
