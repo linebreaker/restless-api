@@ -8,7 +8,7 @@
 - Available on NPM @ https://www.npmjs.org/package/restless-api
 
 ## Example: see Node Annotator Store backend
-- The [NodeJS implementation of the Annotator backend](http://github.com/willy-b/node-annotator-store) is using restless-api
+- A [NodeJS implementation of the Annotator backend](http://github.com/willy-b/node-annotator-store) is using restless-api
 
 ## Quick start
 -  In your app file, call restless-api with JSON having two keys
@@ -19,8 +19,41 @@
 ```
 var restlessApi = require('../index.js');
 var apiRouter = restlessApi({
+    "links": {
+        /* each key in 'links' is a REST noun from 'nouns' at end */
+        "user": { 
+             "index": {
+                "url": "/users",
+                "method": "GET",
+                "desc": "Show a list of users"
+            },
+            "read": {
+                "url": "/users/:id",
+                "method": "GET",
+                "desc": "Get a user by ID"
+            },
+            "create": {
+                "url": "/users",
+                "method": "POST",
+                "desc": "Add a new user"
+            },
+            "update": {
+                "url": "/users/:id",
+                "method": "PUT/POST",
+                "desc": "Update an existing user with ID=:id" 
+             }
+             /* each key in a given noun denotes a REST endpoint (url+method)
+                and will be routed to the callback in the noun module associated with the same key.
+                
+                for example, 'update' above will invoke the function 'update' in 'lib/users.js' - 
+                because that is the module associated with the noun in 'nouns' below 
+             */
+        }
+    },
     "nouns": {
-	"user": require("./lib/users.js")
+    
+        "user": require("./lib/users.js")
+	
 	/* 
 	   - Addl nouns:
 	     You can add more nouns here, e.g.:
@@ -34,38 +67,7 @@ var apiRouter = restlessApi({
 		 }
 	    -  The callbacks in the 'controller' module will be invoked with the model dependency injected
 	 */
-    },
-    "links": {
-	/* each key in 'links' is a REST noun from 'nouns' above */
-	"user": { 
-	    /* each key in a given noun denotes a REST endpoint (url+method)
-	       and will be routed to the callback in the noun module associated with the same key.
-
-	       for example, 'index' below will invoke the function 'index' in 'lib/users.js' --
-	       because that is the module associated with the noun in 'nouns' above 
-	    */
-	    "index": {
-		"url": "/users",
-		"method": "GET",
-		"desc": "Show a list of users"
-	    },
-	    "read": {
-		"url": "/users/:id",
-		"method": "GET",
-		"desc": "Get a user by ID"
-	    },
-	    "create": {
-		"url": "/users",
-		"method": "POST",
-		"desc": "Add a new user"
-	    },
-	    "update": {
-		"url": "/users/:id",
-		"method": "PUT/POST",
-		"desc": "Update an existing user with ID=:id"
-	    }
-	}
-    }
+    }  
 });
 ```
 
