@@ -16,7 +16,8 @@
     * `links`: user-facing API spec (NO CODE, literally ready to send your user)
     * `nouns`: contains a reference to a module (or optionally a controller and model) for each noun
 
-- Example:
+
+## Example:
 (Run `node examples/app.js` to try it!)
 
 ```
@@ -55,9 +56,9 @@ var apiRouter = restlessApi({
     },
     "nouns": {
     
-         "products": {
-            "model": require("./lib/productModel.js"),
-            "controller": require("./lib/productController.js")
+         "user": {
+            "model": require("./lib/userModel.js"),
+            "controller": require("./lib/userController.js")
          }
     
     /*
@@ -90,7 +91,7 @@ express.listen(3000);
 console.log("Listening on port 3000!");
 ```
 
-- And then create modules for each noun, e.g. `./lib/users.js` might be:
+- And then create modules for each noun, e.g. `./lib/userController.js` might be:
 
 ```
 module.exports =  {
@@ -107,7 +108,6 @@ module.exports =  {
 
 - Where the 3rd `user` argument is the user `model` (this example used one unified model+controller for user noun, but if they were separate this would be the controller and it would get the model ref there)
 
-- more docs and example files coming soon...
 
 
 
