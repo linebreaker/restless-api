@@ -54,7 +54,7 @@
 
 	link.url = link.url.trim();
 
-	var methods = link.method.split(new RegExp(/\/\,\ /)).filter(function(method) {
+	var methods = link.method.toLowerCase().trim().split(new RegExp(/[\/\,\ ]/)).filter(function(method) {
 	    return (method && method.trim() !== "");
 	});
 	
@@ -69,9 +69,9 @@
 	    var controller = (noun.controller?noun.controller:noun);
 	    var model = (noun.model?noun.model:noun);
 
-	    var action = noun.controller[linkName];
+	    var action = controller[linkName];
 	    router[method](link.url, function(req, res) {
-		action(req, res, noun.model);
+		action(req, res, model, link.url);
 	    });
 	});
 
