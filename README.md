@@ -1,5 +1,5 @@
 # restless api: RESTful APIs for the highly impatient
-**Under development, check back soon for more documentation**
+**Under development**
 
 - restless-api takes a JSON spec of your APIs like you would send your user (no code inside it) and handles all the Express routing
 
@@ -13,10 +13,12 @@
 ## Quick start
 -  Add `restless-api` to your project: `npm install --save restless-api`
 -  In your app file, call restless-api with JSON having two keys
-	* `links`: user-facing API spec (NO CODE, literally ready to send your user)
-	* `nouns`: contains a reference to a module (or optionally a controller and model) for each noun
+    * `links`: user-facing API spec (NO CODE, literally ready to send your user)
+    * `nouns`: contains a reference to a module (or optionally a controller and model) for each noun
 
 - Example:
+(Run `node examples/app.js` to try it!)
+
 ```
 var restlessApi = require('../index.js');
 var apiRouter = restlessApi({
@@ -53,21 +55,25 @@ var apiRouter = restlessApi({
     },
     "nouns": {
     
-        "user": require("./lib/users.js")
-	
-	/* 
-	   - Addl nouns:
-	     You can add more nouns here, e.g.:
-	        "products": require("./lib/products.js")
+         "products": {
+            "model": require("./lib/productModel.js"),
+            "controller": require("./lib/productController.js")
+         }
+    
+    /*
+       - Addl nouns:
+         You can add more nouns here
 
-	   - Model+controller and dependency injection:
-		You can also specify a model and controller separately, e.g.:
-		 "products": {
-		   	"model": require("./lib/productModel.js"),
-			"controller": require("./lib/productController.js")
-		 }
-	    -  The callbacks in the 'controller' module will be invoked with the model dependency injected
-	 */
+       - Nouns can be specified with a single file:
+            "products": require("./lib/products.js")
+
+       - Or you can specify a model and controller separately, e.g.:
+         "products": {
+            "model": require("./lib/productModel.js"),
+            "controller": require("./lib/productController.js")
+         }
+        -  The callbacks in the 'controller' module will be invoked with the model dependency injected
+     */
     }  
 });
 ```
@@ -88,13 +94,13 @@ console.log("Listening on port 3000!");
 
 ```
 module.exports =  {
-	       index: function index(req, res, User) {
-	       //      ...
-	       },
-	       read: function read(req. res, User) {
-	       //       ...
-	       },
-//...	       	       	       
+           index: function index(req, res, User) {
+           //      ...
+           },
+           read: function read(req. res, User) {
+           //       ...
+           },
+//...
 };
 
 ```
